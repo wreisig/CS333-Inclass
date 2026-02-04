@@ -14,7 +14,7 @@ pingsweep() {
 	active_nodes=0
 	inactive_nodes=0
 	echo "Starting ping sweep..."
-	for i in {1..50}; do 
+	for i in {1..200}; do 
 		local node="${base}${i}"
 		if ping -c 1 $node &> /dev/null; then 
 			echo "active node found" 
@@ -24,7 +24,7 @@ pingsweep() {
 			((inactive_nodes++))
 		fi
 	done
-	echo "Scanned 50 nodes." >> ping.log 
+	echo "Scanned 200 nodes." >> ping.log 
 	echo "Found $active_nodes active machines." >> ping.log
 	echo "No response from $inactive_nodes machines." >> ping.log
 	echo "Done! Check the ping.log :)"
