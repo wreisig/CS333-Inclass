@@ -26,10 +26,10 @@ pingsweep(){
     ping -c 1 $curr >> $LOG 2>&1
 
     if [ $? -eq 0 ]; then
-      echo "$curr is UP"
+      echo "$curr responded"
       ((found++))
     else
-      echo "$curr is DOWN"
+      echo "$curr no response"
       ((missing++))
     fi
   done
